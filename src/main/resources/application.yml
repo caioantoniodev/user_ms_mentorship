@@ -1,0 +1,29 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api/v1
+logging:
+  level:
+    org:
+    springframework: INFO
+    root: INFO
+    data:
+      mongodb:
+        core:
+          MongoTemplate: INFO
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: userms
+  data:
+    mongodb:
+      uri: mongodb://mongo:pass@localhost:27017/userms?authSource=admin
+
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+management:
+  endpoints:
+    web:
+      base-path: "/"
+      path-mapping:
+        health: "health"
