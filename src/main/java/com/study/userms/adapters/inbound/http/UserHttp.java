@@ -1,11 +1,14 @@
 package com.study.userms.adapters.inbound.http;
 
 import com.study.userms.adapters.inbound.dto.UserRequest;
+import com.study.userms.adapters.inbound.dto.UserResponse;
 import com.study.userms.ports.inbound.UserServicePortIn;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -25,4 +28,9 @@ public class UserHttp {
         httpServletResponse.setHeader("Location", createdUserId);
     }
 
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<UserResponse> findAllUsers() {
+        return userServicePortIn.findAllUsers();
+    }
 }

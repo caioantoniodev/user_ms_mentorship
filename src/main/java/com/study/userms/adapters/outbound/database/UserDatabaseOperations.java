@@ -5,6 +5,8 @@ import com.study.userms.infra.repositories.UserRepository;
 import com.study.userms.ports.outbound.UserDatabaseOperationsPortOut;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class UserDatabaseOperations implements UserDatabaseOperationsPortOut {
 
@@ -18,5 +20,10 @@ public class UserDatabaseOperations implements UserDatabaseOperationsPortOut {
     public String save(UserEntity userEntity) {
         var user = userRepository.save(userEntity);
         return user.getId();
+    }
+
+    @Override
+    public List<UserEntity> findAll() {
+        return userRepository.findAll();
     }
 }
