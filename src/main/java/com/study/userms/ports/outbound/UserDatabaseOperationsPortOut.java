@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface UserDatabaseOperationsPortOut {
     String save(UserEntity userEntity);
-
     List<UserEntity> findAll();
+    UserEntity findById(String id);
 }
