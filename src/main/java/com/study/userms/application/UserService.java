@@ -65,7 +65,7 @@ public class UserService implements UserServicePortIn {
 
         requestData.forEach((propertyName, propertyValue) -> {
             var foundField = ReflectionUtils.findField(UserEntity.class, propertyName);
-            isAllowedField(foundField);
+            isAnAllowedField(foundField);
             foundField.setAccessible(true);
 
             var foundValue = ReflectionUtils.getField(foundField, userRequest);
@@ -73,7 +73,7 @@ public class UserService implements UserServicePortIn {
         });
     }
 
-    private void isAllowedField(Field field) {
+    private void isAnAllowedField(Field field) {
         if (field == null)
             throw new RuntimeException("Field not exists");
 
