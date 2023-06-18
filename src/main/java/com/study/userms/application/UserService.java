@@ -6,6 +6,7 @@ import com.study.userms.adapters.inbound.dto.UserResponse;
 import com.study.userms.domain.UserEntity;
 import com.study.userms.ports.inbound.UserServicePortIn;
 import com.study.userms.ports.outbound.UserDatabaseOperationsPortOut;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 @Service
 public class UserService implements UserServicePortIn {
 
+    @Autowired
     private final UserDatabaseOperationsPortOut userDatabaseOperationsPortOut;
 
     public UserService(UserDatabaseOperationsPortOut userDatabaseOperationsPortOut) {
