@@ -4,6 +4,7 @@ import com.study.userms.domain.UserEntity;
 import com.study.userms.infra.repositories.UserRepository;
 import com.study.userms.ports.outbound.UserDatabaseOperationsPortOut;
 import org.springframework.stereotype.Component;
+import org.webjars.NotFoundException;
 
 import java.util.List;
 
@@ -25,5 +26,12 @@ public class UserDatabaseOperations implements UserDatabaseOperationsPortOut {
     @Override
     public List<UserEntity> findAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public UserEntity findById(String id) {
+        return userRepository
+                .findById(id)
+                .orElseThrow(() -> new NotFoundException("User not found"));
     }
 }

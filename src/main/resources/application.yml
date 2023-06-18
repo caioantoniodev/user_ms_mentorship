@@ -18,7 +18,7 @@ spring:
     name: userms
   data:
     mongodb:
-      uri: mongodb://mongo:pass@localhost:27017/userms?authSource=admin
+      uri: mongodb://neo:root@localhost:27017/userms?authSource=admin
 
       field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
 management:
